@@ -327,14 +327,15 @@ namespace Goteo\Controller {
                             $errors = array();
                             if ($project->passed($errors)) {
                                 // se crea el registro de contrato
-                                if (Model\Contract::create($project->id, $errors)) {
-                                    echo ' -> Ok:: se ha creado el registro de contrato';
-                                } else {
-                                    @mail(\GOTEO_FAIL_MAIL,
-                                        'Fallo al crear registro de contrato ' . SITE_URL,
-                                        'Fallo al crear registro de contrato para el proyecto '.$project->name.': ' . implode(',', $errors));
-                                    echo ' -> semi-Ok: se ha actualiuzado el estado del proyecto pero ha fallado al crear el registro de contrato. ERROR: ' . implode(',', $errors);
-                                }
+                                //(^q^)2016-02-22 15:40 Deleted. Recording contract is created
+                                //if (Model\Contract::create($project->id, $errors)) {
+                                //    echo ' -> Ok:: se ha creado el registro de contrato';
+                                //} else {
+                                //    @mail(\GOTEO_FAIL_MAIL,
+                                //        'Fallo al crear registro de contrato ' . SITE_URL,
+                                //        'Fallo al crear registro de contrato para el proyecto '.$project->name.': ' . implode(',', $errors));
+                                //    echo ' -> semi-Ok: se ha actualiuzado el estado del proyecto pero ha fallado al crear el registro de contrato. ERROR: ' . implode(',', $errors);
+                                //}
                             } else {
                                 @mail(\GOTEO_FAIL_MAIL,
                                     'Fallo al marcar fecha de paso a segunda ronda ' . SITE_URL,
@@ -593,8 +594,12 @@ namespace Goteo\Controller {
             }
 
 
+            // (^q^)2016-02-21 20:43 Deleted
             // checkeamos campañas activas
-            $campaigns = Model\Call::getActive(4);
+            //$campaigns = Model\Call::getActive(4);
+            // (^q^)2016-02-21 20:43 Add
+            $campaigns = array();
+            
             foreach ($campaigns as $campaign) {
                 $errors = array();
 
