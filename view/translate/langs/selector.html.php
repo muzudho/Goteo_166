@@ -23,7 +23,9 @@ use Goteo\Library\i18n\Lang;
 $langs = Lang::getAll();
 unset($langs['es']); // no se puede traducir a español
 
-$actual = Lang::get($_SESSION['translator_lang']);
+//(^q^)2016-02-22 18:10 Modify.
+//$actual = Lang::get($_SESSION['translator_lang']);
+$actual = Lang::get($_SESSION['translate_lang']);
 
 $section = isset($this['table']) ? $this['table'] : $this['section'];
 
